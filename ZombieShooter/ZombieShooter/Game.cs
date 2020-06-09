@@ -12,6 +12,7 @@ namespace ZombieShooter
 {
     public partial class Game : Form
     {
+        Player igrach; 
         bool goLeft, goRight, goUp, goDown, gameOver;
         string facing = "up";
         int playerHealth = 100;
@@ -21,6 +22,13 @@ namespace ZombieShooter
         int kills = 0;
         Random newRnd = new Random();
         List<PictureBox> zombies = new List<PictureBox>();
+
+        public Game(string playername)
+        {
+            igrach = new Player(playername);
+            InitializeComponent();
+            Timer.Start();
+        }
 
         private void Game_KeyDown(object sender, KeyEventArgs e) // dokolku se pritisne kopce da doznaeme na koja strana treba da odime
         {
@@ -76,9 +84,15 @@ namespace ZombieShooter
                 goLeft = false;
             }
 
-            if (e.KeyCode == Keys.Space)
+            if (e.KeyCode == Keys.Space && ammo > 0)
             {
+                ammo--;
                 ShootBullet(facing);
+
+                if (ammo == 1)
+                {
+                    dropAmmo();
+                }
             }
 
         }
@@ -92,6 +106,8 @@ namespace ZombieShooter
             else
             {
                 gameOver = true;
+                Player.Image = Properties.Resources.dead;
+                Timer.Stop();
             }
             lblMadeKills.Text = kills.ToString();
             lblTotalAmmo.Text = ammo.ToString();
@@ -112,17 +128,46 @@ namespace ZombieShooter
             {
                 Player.Top += speed;
             }
-        }
-        
-        public Game(string playername)
-        {
-            InitializeComponent();
-            Timer.Start();
+
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox && (string)x.Tag == "ammo")
+                {
+                    if (Player.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        this.Controls.Remove(x);
+                        ((PictureBox)x).Dispose();
+                        ammo += 5;
+                    }
+                }
+            }
         }
 
         public void MakeZombies()
         {
+            PictureBox zombie = new PictureBox();
+            zombie.Tag = "zombie";
+            zombie.Image = Properties.Resources.zdown;
+            zombie.Left = newRnd.Next(0, 900);
+            zombie.Top = newRnd.Next(0, 800);
+            zombie.SizeMode = PictureBoxSizeMode.AutoSize; // fit to picture
+            zombies.Add(zombie);
+            this.Controls.Add(zombie);
 
+            Player.BringToFront();
+        }
+
+        private void dropAmmo()
+        {
+            PictureBox ammo = new PictureBox();
+            ammo.Image = Properties.Resources.ammo_Image;
+            ammo.SizeMode = PictureBoxSizeMode.AutoSize;
+            ammo.Left = newRnd.Next(10, this.ClientSize.Width - ammo.Width);
+            ammo.Top = newRnd.Next(10, this.ClientSize.Height - ammo.Height);
+            ammo.Tag = "ammo";
+
+            this.Controls.Add(ammo);
+            Player.BringToFront();
         }
 
         public void ShootBullet(string direction)

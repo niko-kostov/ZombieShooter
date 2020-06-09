@@ -10,5 +10,11 @@ namespace ZombieShooter
     {
         string Name;
         int Points;
+
+        public Player (string playername)
+        {
+            this.Name = playername;
+            Points = 0;
+        }
     }
 }

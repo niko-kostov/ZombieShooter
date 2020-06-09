@@ -55,7 +55,7 @@ namespace ZombieShooter
                 bullet.Top += speed;
             }
 
-            if (bullet.Left < 10 || bullet.Left > 860 || bullet.Top < 10 || bullet.Top > 600) // ako bullet premine odredeni dimenzii da se izbrise
+            if (bullet.Left < 10 || bullet.Left > 900 || bullet.Top < 10 || bullet.Top > 650) // ako bullet premine odredeni dimenzii da se izbrise
             {
                 bulletTimer.Stop();
                 bulletTimer.Dispose();
