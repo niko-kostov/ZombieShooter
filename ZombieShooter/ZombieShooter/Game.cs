@@ -113,7 +113,7 @@ namespace ZombieShooter
                 Player.Top += speed;
             }
         }
-
+        
         public Game(string playername)
         {
             InitializeComponent();

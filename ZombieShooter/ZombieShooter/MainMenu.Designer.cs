@@ -58,6 +58,7 @@
             this.pbPlaygame.Size = new System.Drawing.Size(179, 61);
             this.pbPlaygame.TabIndex = 1;
             this.pbPlaygame.TabStop = false;
+            this.pbPlaygame.Click += new System.EventHandler(this.pbPlaygame_Click);
             // 
             // pbScoreboard
             // 
@@ -68,6 +69,7 @@
             this.pbScoreboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbScoreboard.TabIndex = 2;
             this.pbScoreboard.TabStop = false;
+            this.pbScoreboard.Click += new System.EventHandler(this.pbScoreboard_Click);
             // 
             // pbQuit
             // 
@@ -77,6 +79,7 @@
             this.pbQuit.Size = new System.Drawing.Size(179, 61);
             this.pbQuit.TabIndex = 3;
             this.pbQuit.TabStop = false;
+            this.pbQuit.Click += new System.EventHandler(this.pbQuit_Click);
             // 
             // txtPlayer
             // 
@@ -97,7 +100,7 @@
             this.lblPlayer.Text = "PLAYER: ";
             this.lblPlayer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Form1
+            // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -109,7 +112,7 @@
             this.Controls.Add(this.pbScoreboard);
             this.Controls.Add(this.pbPlaygame);
             this.Controls.Add(this.pbBackground);
-            this.Name = "Form1";
+            this.Name = "MainMenu";
             this.Text = "Zombie Shooter";
             ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaygame)).EndInit();
