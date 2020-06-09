@@ -26,7 +26,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        
+        /*private void InitializeComponent()
         {
             this.pbBackground = new System.Windows.Forms.PictureBox();
             this.pbPlaygame = new System.Windows.Forms.PictureBox();
@@ -118,7 +119,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
-        }
+        }*/
+        
 
         #endregion
 
