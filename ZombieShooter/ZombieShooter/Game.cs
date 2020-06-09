@@ -127,6 +127,11 @@ namespace ZombieShooter
 
         public void ShootBullet(string direction)
         {
+            Bullet shootBullet = new Bullet();
+            shootBullet.direction = direction;
+            shootBullet.bulletLeft = Player.Left + (Player.Width / 2); // da pocne kursumot otprilika na pola covek
+            shootBullet.bulletTop = Player.Top + (Player.Height / 2);
+            shootBullet.makeBullet(this);
 
         }
     }
