@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace ZombieShooter
 {
-    public partial class Form1 : Form
+    public partial class MainMenu : Form
     {
-        public Form1()
+        public MainMenu()
         {
             InitializeComponent();
         }
+
     }
 }
