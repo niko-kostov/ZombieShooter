@@ -16,5 +16,11 @@ namespace ZombieShooter
         {
             InitializeComponent();
         }
+
+        private void lblBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            
+        }
     }
 }

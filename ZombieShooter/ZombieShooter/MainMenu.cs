@@ -32,7 +32,9 @@ namespace ZombieShooter
         private void pbScoreboard_Click(object sender, EventArgs e)
         {
             Scoreboard scoreboard = new Scoreboard();
+            this.Hide();     //go prikriva glavnoto meni koga se otvara scoreboard
             scoreboard.ShowDialog();
+            this.Show();
         }
 
         private void pbPlaygame_Click(object sender, EventArgs e)
@@ -42,7 +44,9 @@ namespace ZombieShooter
                 return;
             }
             Game newGame = new Game(txtPlayer.Text);
+            this.Hide();
             newGame.ShowDialog();
+            this.Show();
         }
     }
 }
