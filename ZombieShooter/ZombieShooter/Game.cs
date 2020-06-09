@@ -12,7 +12,8 @@ namespace ZombieShooter
 {
     public partial class Game : Form
     {
-        public Game()
+        
+        public Game(string playername)
         {
             InitializeComponent();
         }
