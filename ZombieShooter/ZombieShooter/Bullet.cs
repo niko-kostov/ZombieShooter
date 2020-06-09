@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ZombieShooter
 {
-    class Bullet
+    public class Bullet
     {
+
     }
 }

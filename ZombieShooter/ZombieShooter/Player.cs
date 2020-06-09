@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ZombieShooter
 {
-    class Player
+    public class Player
     {
+        string Name;
+        int Points;
     }
 }
