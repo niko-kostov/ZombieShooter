@@ -100,15 +100,15 @@ namespace ZombieShooter
             {
                 Player.Left -= speed;
             }
-            if (goLeft == true && Player.Left + Player.Width < this.ClientSize.Width)
+            if (goRight == true && Player.Left + Player.Width < this.ClientSize.Width - 15)
             {
                 Player.Left += speed;
             }
-            if (goUp == true && Player.Top > 0)
+            if (goUp == true && Player.Top > 45)
             {
                 Player.Top -= speed;
             }
-            if (goUp == true && Player.Top + Player.Height < this.ClientSize.Height)
+            if (goDown == true && Player.Top + Player.Height < this.ClientSize.Height - 15)
             {
                 Player.Top += speed;
             }
@@ -117,6 +117,7 @@ namespace ZombieShooter
         public Game(string playername)
         {
             InitializeComponent();
+            Timer.Start();
         }
 
         public void MakeZombies()
