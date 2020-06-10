@@ -53,6 +53,8 @@
             // 
             // pbHealth
             // 
+            this.pbHealth.BackColor = System.Drawing.Color.DimGray;
+            this.pbHealth.Cursor = System.Windows.Forms.Cursors.Default;
             this.pbHealth.Location = new System.Drawing.Point(754, 9);
             this.pbHealth.Name = "pbHealth";
             this.pbHealth.Size = new System.Drawing.Size(158, 21);
