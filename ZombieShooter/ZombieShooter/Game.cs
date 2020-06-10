@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Configuration;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -24,7 +25,6 @@ namespace ZombieShooter
         int speed = 10;
         int ammo = 10;
         int zombieSpeed = 3;
-        int kills = 0;
         Random newRnd = new Random();
         List<PictureBox> zombies = new List<PictureBox>();
         MainMenu mainMenu;
@@ -33,14 +33,13 @@ namespace ZombieShooter
             this.igrach = igrach;
             this.mainMenu = mm;
             InitializeComponent();
-
-
             //windowsPlayer = new WindowsMediaPlayer();
             string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + @"/Soundtrack/BossFightSoundtrack.mp3";
             windowsPlayer.URL = path;
             windowsPlayer.settings.volume = 15;
             windowsPlayer.controls.play();
-
+            pbHealth.Value = 100;
+            igrach.Points = 0;
             Timer.Start();
             Initial_Spawn();
         }
@@ -145,7 +144,10 @@ namespace ZombieShooter
                 this.Close();
                 Timer.Stop();
             }
-            if (playerHealth < 40) pbHealth.SetState(2);
+            if (playerHealth < 40 && !pbHealth.IsDisposed)
+            {
+                pbHealth.SetState(2);
+            }
 
             lblMadeKills.Text = igrach.Points.ToString();
             lblTotalAmmo.Text = ammo.ToString();
