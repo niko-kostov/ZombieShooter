@@ -15,7 +15,7 @@ namespace ZombieShooter
 {
     public partial class Game : Form
     {
-        WindowsMediaPlayer windowsPlayer;
+        WindowsMediaPlayer windowsPlayer = new WindowsMediaPlayer();
         Player igrach;
         bool goLeft, goRight, goUp, goDown;
         bool gameOver = false;
@@ -27,14 +27,16 @@ namespace ZombieShooter
         int kills = 0;
         Random newRnd = new Random();
         List<PictureBox> zombies = new List<PictureBox>();
-
-        public Game(Player igrach)
+        MainMenu mainMenu;
+        public Game(Player igrach, MainMenu mm)
         {
             this.igrach = igrach;
+            this.mainMenu = mm;
             InitializeComponent();
 
-            windowsPlayer = new WindowsMediaPlayer();
-            string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + @"/Soundtrack/MainGameSoundtrack.mp3";
+
+            //windowsPlayer = new WindowsMediaPlayer();
+            string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + @"/Soundtrack/BossFightSoundtrack.mp3";
             windowsPlayer.URL = path;
             windowsPlayer.settings.volume = 15;
             windowsPlayer.controls.play();
@@ -136,6 +138,11 @@ namespace ZombieShooter
             {
                 gameOver = true;
                 Player.Image = Properties.Resources.dead;
+                GameOver gg = new GameOver(igrach, mainMenu);
+                gg.Show();
+                
+                mainMenu.Hide();
+                this.Close();
                 Timer.Stop();
             }
             if (playerHealth < 40) pbHealth.SetState(2);
@@ -226,6 +233,7 @@ namespace ZombieShooter
         private void Game_FormClosed(object sender, FormClosedEventArgs e)
         {
             windowsPlayer.controls.stop();
+            mainMenu.Hide();
         }
 
         public void MakeZombies()

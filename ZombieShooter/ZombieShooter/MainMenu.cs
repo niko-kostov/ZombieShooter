@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WMPLib;
@@ -56,14 +57,15 @@ namespace ZombieShooter
                 return;
             }
             newPlayer = new Player(txtPlayer.Text);
-            Game newGame = new Game(newPlayer);
-            this.Hide();
-
             windowsPlayer.controls.stop();
-            newGame.ShowDialog();
-            windowsPlayer.controls.play();
+            Game newGame = new Game(newPlayer, this);
+            this.Hide();
             
-            this.Show();
+            newGame.ShowDialog();
+
+            //windowsPlayer.controls.play();
+            
+            //this.Show();
         }
     }
 }
