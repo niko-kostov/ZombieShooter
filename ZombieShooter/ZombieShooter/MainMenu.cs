@@ -58,9 +58,11 @@ namespace ZombieShooter
             newPlayer = new Player(txtPlayer.Text);
             Game newGame = new Game(newPlayer);
             this.Hide();
+
             windowsPlayer.controls.stop();
             newGame.ShowDialog();
             windowsPlayer.controls.play();
+            
             this.Show();
         }
     }
