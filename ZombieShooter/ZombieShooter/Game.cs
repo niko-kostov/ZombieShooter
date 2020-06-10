@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMPLib;
 
 namespace ZombieShooter
 {
     public partial class Game : Form
     {
+        WindowsMediaPlayer windowsPlayer = new WindowsMediaPlayer();
         bool goLeft, goRight, goUp, goDown, gameOver;
         string facing = "up";
         int playerHealth = 100;
@@ -83,6 +86,11 @@ namespace ZombieShooter
 
         }
 
+        private void Game_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            windowsPlayer.controls.stop();
+        }
+
         private void Timer_Tick(object sender, EventArgs e) // na sekoja sekunda od timerot da se pravi update na ammo, pozicija i sl.
         {
             if (playerHealth > 1)
@@ -114,11 +122,19 @@ namespace ZombieShooter
             }
         }
         
-        public Game(string playername)
+        public Game(Player player)
         {
             InitializeComponent();
+
+
+            string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + @"/Soundtrack/MainGameSoundtrack.mp3";
+            windowsPlayer.URL = path;
+            windowsPlayer.controls.play();
+            windowsPlayer.settings.volume = 15;
+
             Timer.Start();
         }
+
 
         public void MakeZombies()
         {

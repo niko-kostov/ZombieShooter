@@ -134,6 +134,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Game";
             this.Text = "Zombie_Shooter";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Game_FormClosed);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Game_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
