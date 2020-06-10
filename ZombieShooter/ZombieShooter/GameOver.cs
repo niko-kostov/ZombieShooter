@@ -12,16 +12,26 @@ namespace ZombieShooter
 {
     public partial class GameOver : Form
     {
-        public GameOver()
+        Player player;
+        public GameOver(Player player)
         {
             InitializeComponent();
+            this.player = player;
+            lblScore.Text = player.Points.ToString();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Close();
-            Game retry = new Game("aaa");
+            Game retry = new Game(player);
             retry.Show();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MainMenu menu = new MainMenu();
+            menu.ShowDialog();
         }
     }
 }
