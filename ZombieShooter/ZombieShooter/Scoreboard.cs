@@ -12,9 +12,22 @@ namespace ZombieShooter
 {
     public partial class Scoreboard : Form
     {
-        public Scoreboard()
+        //List<Player> players = new List<Player>();
+        public Scoreboard(List<Player> players)
         {
             InitializeComponent();
+            players = players.OrderByDescending(x => x.Points).ToList();
+            StringBuilder sb = new StringBuilder();
+            foreach(Player p in players)
+            {
+                sb.Append(p.Name + " " + p.Points.ToString() + "\n");
+            }
+            lblTopPlayers.Text = sb.ToString();
+        }
+
+        private void lblBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

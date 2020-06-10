@@ -4,15 +4,18 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMPLib;
 
 namespace ZombieShooter
 {
     public partial class Game : Form
     {
+        WindowsMediaPlayer windowsPlayer;
         Player igrach;
         bool goLeft, goRight, goUp, goDown;
         bool gameOver = false;
@@ -25,10 +28,17 @@ namespace ZombieShooter
         Random newRnd = new Random();
         List<PictureBox> zombies = new List<PictureBox>();
 
-        public Game(string playername)
+        public Game(Player igrach)
         {
-            igrach = new Player(playername);
+            this.igrach = igrach;
             InitializeComponent();
+
+            windowsPlayer = new WindowsMediaPlayer();
+            string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + @"/Soundtrack/MainGameSoundtrack.mp3";
+            windowsPlayer.URL = path;
+            windowsPlayer.settings.volume = 15;
+            windowsPlayer.controls.play();
+
             Timer.Start();
             Initial_Spawn();
         }
@@ -211,6 +221,11 @@ namespace ZombieShooter
                 }
             }
 
+        }
+
+        private void Game_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            windowsPlayer.controls.stop();
         }
 
         public void MakeZombies()
