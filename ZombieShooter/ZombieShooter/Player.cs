@@ -8,13 +8,18 @@ namespace ZombieShooter
 {
     public class Player
     {
-        string Name;
-        int Points;
+        public string Name { get; set; }
+        public int Points { get; set; }
 
         public Player (string playername)
         {
             this.Name = playername;
             Points = 0;
+        }
+
+        public void IncreasePoints ()
+        {
+            Points++;
         }
     }
 }
