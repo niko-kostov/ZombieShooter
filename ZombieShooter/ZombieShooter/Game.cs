@@ -123,12 +123,14 @@ namespace ZombieShooter
                 {
                     dropAmmo();
                 }
+                
             }
 
         }
 
         private void Timer_Tick(object sender, EventArgs e) // na sekoja sekunda od timerot da se pravi update na ammo, pozicija i sl.
         {
+            
             if (playerHealth > 1)
             {
                 pbHealth.Value = playerHealth;
@@ -171,6 +173,33 @@ namespace ZombieShooter
 
             foreach (Control x in this.Controls) // sobiranje na ammo, dvizenje na zombies i presmetuvanje udari
             {
+                foreach (Control j in Controls)
+                {
+                    if (j is PictureBox && (string)j.Tag == "health" && j.Bounds.IntersectsWith(Player.Bounds))
+                    {
+
+                        if (pbHealth.Value > 80)
+                        {
+                            pbHealth.Value = 100;
+                            playerHealth = 100;
+                        }
+                        else if (pbHealth.Value > 21 && pbHealth.Value <= 80)
+                        {
+                            playerHealth += 20;
+                            pbHealth.Value = playerHealth;
+                            pbHealth.SetState(1);
+                        }
+                        else
+                        {
+                            playerHealth += 20;
+                            pbHealth.Value = playerHealth;
+                            pbHealth.SetState(2);
+                            //label1.Text = playerHealth.ToString();
+                        }
+                        this.Controls.Remove(j);
+                        j.Dispose();
+                    }
+                }
                 if (x is PictureBox && (string)x.Tag == "ammo")
                 {
                     if (Player.Bounds.IntersectsWith(x.Bounds))
@@ -220,6 +249,10 @@ namespace ZombieShooter
                         if (j.Bounds.IntersectsWith(x.Bounds))
                         {
                             igrach.IncreasePoints();
+                            if (igrach.Points % 10 == 0 && igrach.Points != 0)
+                            {
+                                dropHealth();
+                            }
                             this.Controls.Remove(x);
                             x.Dispose();
                             this.Controls.Remove(j);
@@ -227,11 +260,24 @@ namespace ZombieShooter
                             MakeZombies();
                         }
                     }
+                    
                 }
+                
             }
+            
 
         }
-
+        public void dropHealth()
+        {
+            PictureBox healthIcon = new PictureBox();
+            healthIcon.Tag = "health";
+            healthIcon.Image = Properties.Resources.healthIcon;
+            healthIcon.Left = newRnd.Next(10, this.ClientSize.Width - healthIcon.Width);
+            healthIcon.Top = newRnd.Next(10, this.ClientSize.Height - healthIcon.Height);
+            healthIcon.SizeMode = PictureBoxSizeMode.AutoSize;
+            this.Controls.Add(healthIcon);
+            Player.BringToFront();
+        }
         private void Game_FormClosed(object sender, FormClosedEventArgs e)
         {
             windowsPlayer.controls.stop();

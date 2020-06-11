@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\backIcon.png" />
+    <None Include="Resources\healthIcon.png" />
     <Content Include="Soundtrack\BossFightSoundtrack.mp3" />
     <Content Include="Soundtrack\MainGameSoundtrack.mp3" />
     <Content Include="Soundtrack\MainMenuSoundtrack.mp3" />
