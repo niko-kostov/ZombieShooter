@@ -34,7 +34,7 @@ namespace ZombieShooter
             this.mainMenu = mm;
             InitializeComponent();
             //windowsPlayer = new WindowsMediaPlayer();
-            string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + @"/Soundtrack/BossFightSoundtrack.mp3";
+            string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + @"/Soundtrack/MainGameSoundtrack.mp3";
             windowsPlayer.URL = path;
             windowsPlayer.settings.volume = 15;
             windowsPlayer.controls.play();
@@ -171,19 +171,18 @@ namespace ZombieShooter
                 Player.Top += speed;
             }
 
-            foreach (Control x in this.Controls) // sobiranje na ammo, dvizenje na zombies i presmetuvanje udari
+            foreach (Control x in this.Controls) // sobiranje na ammo, dvizenje na zombies i presmetuvanje udari, i dodavanje health
             {
                 foreach (Control j in Controls)
                 {
                     if (j is PictureBox && (string)j.Tag == "health" && j.Bounds.IntersectsWith(Player.Bounds))
                     {
-
                         if (pbHealth.Value > 80)
                         {
                             pbHealth.Value = 100;
                             playerHealth = 100;
                         }
-                        else if (pbHealth.Value > 21 && pbHealth.Value <= 80)
+                        else if (pbHealth.Value > 20 && pbHealth.Value <= 80)
                         {
                             playerHealth += 20;
                             pbHealth.Value = playerHealth;
