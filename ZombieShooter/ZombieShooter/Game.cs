@@ -180,19 +180,22 @@ namespace ZombieShooter
                         if (pbHealth.Value > 80)
                         {
                             pbHealth.Value = 100;
-                            playerHealth = 100;
-                        }
-                        else if (pbHealth.Value > 20 && pbHealth.Value <= 80)
-                        {
-                            playerHealth += 20;
-                            pbHealth.Value = playerHealth;
-                            pbHealth.SetState(1);
+                            playerHealth = 100;                            
                         }
                         else
-                        {
+                        {                            
                             playerHealth += 20;
                             pbHealth.Value = playerHealth;
-                            pbHealth.SetState(2);
+                            if (pbHealth.Value > 40)
+                            {
+                                pbHealth.SetState(1);
+                            }
+                            else
+                            {
+                                pbHealth.SetState(1);
+                                pbHealth.SetState(2);
+                            }
+
                             //label1.Text = playerHealth.ToString();
                         }
                         this.Controls.Remove(j);
