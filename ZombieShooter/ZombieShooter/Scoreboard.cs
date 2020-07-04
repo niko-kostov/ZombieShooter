@@ -16,7 +16,6 @@ namespace ZombieShooter
         public Scoreboard(List<Player> players)
         {
             InitializeComponent();
-            players = players.OrderByDescending(x => x.Points).ToList();
             StringBuilder sb = new StringBuilder();
             foreach(Player p in players)
             {

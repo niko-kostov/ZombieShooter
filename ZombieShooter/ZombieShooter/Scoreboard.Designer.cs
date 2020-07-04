@@ -38,7 +38,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(150, 9);
+            this.label1.Location = new System.Drawing.Point(90, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(347, 60);
             this.label1.TabIndex = 0;
@@ -59,7 +59,7 @@
             this.lblBack.AutoSize = true;
             this.lblBack.Font = new System.Drawing.Font("Showcard Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBack.ForeColor = System.Drawing.Color.Red;
-            this.lblBack.Location = new System.Drawing.Point(561, 559);
+            this.lblBack.Location = new System.Drawing.Point(403, 395);
             this.lblBack.Name = "lblBack";
             this.lblBack.Size = new System.Drawing.Size(94, 36);
             this.lblBack.TabIndex = 2;
@@ -71,7 +71,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(667, 604);
+            this.ClientSize = new System.Drawing.Size(528, 462);
             this.Controls.Add(this.lblBack);
             this.Controls.Add(this.lblTopPlayers);
             this.Controls.Add(this.label1);

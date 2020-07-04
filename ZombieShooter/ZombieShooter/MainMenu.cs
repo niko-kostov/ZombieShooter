@@ -40,9 +40,10 @@ namespace ZombieShooter
 
         private void pbScoreboard_Click(object sender, EventArgs e)
         {
+            players = players.OrderByDescending(x => x.Points).ToList();
             if (players.Count > 5)
             {
-                players.RemoveRange(5, players.Count);
+                players.RemoveRange(5, players.Count - 5);
             }
             Scoreboard scoreboard = new Scoreboard(players);
             this.Hide();     //go prikriva glavnoto meni koga se otvara scoreboard
