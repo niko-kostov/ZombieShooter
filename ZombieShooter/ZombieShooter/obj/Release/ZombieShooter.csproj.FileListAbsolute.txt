@@ -1,0 +1,15 @@
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\bin\Release\ZombieShooter.exe.config
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\bin\Release\ZombieShooter.exe
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\bin\Release\ZombieShooter.pdb
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\obj\Release\ZombieShooter.csprojAssemblyReference.cache
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\obj\Release\Interop.WMPLib.dll
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\obj\Release\ZombieShooter.csproj.ResolveComReference.cache
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\obj\Release\ZombieShooter.Game.resources
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\obj\Release\ZombieShooter.GameOver.resources
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\obj\Release\ZombieShooter.MainMenu.resources
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\obj\Release\ZombieShooter.Properties.Resources.resources
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\obj\Release\ZombieShooter.Scoreboard.resources
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\obj\Release\ZombieShooter.csproj.GenerateResource.cache
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\obj\Release\ZombieShooter.csproj.CoreCompileInputs.cache
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\obj\Release\ZombieShooter.exe
+C:\Users\Nikola\source\repos\ZombieShooter\ZombieShooter\ZombieShooter\obj\Release\ZombieShooter.pdb
